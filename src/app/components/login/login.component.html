@@ -1,6 +1,7 @@
-<div class="container">
-  <div class="card p-5">
-    <h1 class="h3 mb-3 fw-normal text-center">Projeto Clínica</h1>
+<app-wait-icon *ngIf="loading"></app-wait-icon>
+<div class="container d-flex justify-content-center align-items-center vh-100">
+  <div class="card p-3">
+    <img src="assets/logo.png" alt="Logo da clínica" />
 
     <div class="form-floating">
       <input
@@ -8,6 +9,7 @@
         class="form-control"
         id="floatingInput"
         placeholder="name@example.com"
+        [(ngModel)]="usuario.login"
       />
       <label for="floatingInput">Login</label>
     </div>
@@ -17,6 +19,8 @@
         class="form-control"
         id="floatingPassword"
         placeholder="Password"
+        [(ngModel)]="usuario.senha"
+        (keyup.enter)="logar()"
       />
       <label for="floatingPassword">Senha</label>
     </div>
@@ -24,5 +28,11 @@
     <button class="btn btn-primary w-100 py-2" type="button" (click)="logar()">
       Entrar
     </button>
+
+    <span
+      class="text-danger text-center pt-1 pb-1 my-2 bg-danger-subtle rounded fw-semibold"
+      *ngIf="mensagem != ''"
+      >{{ mensagem }}</span
+    >
   </div>
 </div>
