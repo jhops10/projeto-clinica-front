@@ -18,16 +18,16 @@ export class LoginComponent {
 
   public logar() {
     this.loading = true;
-    this.service.efetuarLogin(this.usuario).subscribe(
-      (result: ClinicaToken) => {
+    this.service.efetuarLogin(this.usuario).subscribe({
+      next: (result: ClinicaToken) => {
         this.loading = false;
         localStorage.setItem('ClinicaToken', result.token);
         this.route.navigate(['main']);
       },
-      (err: any) => {
+      error: (err: any) => {
         this.loading = false;
         this.mensagem = 'Usuário/Senha Inválidos';
-      }
-    );
+      },
+    });
   }
 }
