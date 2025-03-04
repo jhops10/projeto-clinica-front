@@ -6,16 +6,138 @@
   </div>
   <ul class="nav nav-tabs">
     <li class="nav-item">
-      <a class="nav-link active" aria-current="page" href="#">Active</a>
+      <a class="nav-link" href="#">Info. Básicas</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Link</a>
+      <a class="nav-link" href="#">Diagnóstico Clínico</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Link</a>
+      <a class="nav-link" href="#">Queixa Principal</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+      <a class="nav-link">HMP/HMA</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link">Medicações</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link">Ex. Complementares</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link">Ex. Físico</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link">Conduta Clínica</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link">Diagnóstico</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link">Mídias</a>
     </li>
   </ul>
+</div>
+
+<div class="container">
+  <!--Informações Básicas-->
+  <section id="infoBasica" class="my-3">
+    <h4>Informações Básicas</h4>
+    <div class="row">
+      <div class="col-8">
+        <div class="row">
+          <div class="col-12">
+            <label for="txtNome" class="my-2 fw-semibold">
+              Nome do Paciente</label
+            >
+            <input type="text" id="txtNome" class="form-control" />
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-6">
+            <label for="txtSexo" class="my-2 fw-semibold">Sexo</label>
+            <select id="txtSexo" class="form-control">
+              <option value="M">Masculino</option>
+              <option value="F">Feminino</option>
+              <option value="X">Prefiro Não Informar</option>
+            </select>
+          </div>
+          <div class="col-6">
+            <label for="txtCep" class="my-2 fw-semibold">CEP</label>
+            <input type="text" id="txtCep" class="form-control" />
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            <label for="txtEndereco" class="my-2 fw-semibold">Endereço</label>
+            <input type="text" id="txtEndereco" class="form-control" />
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-4">
+            <label for="txtNumCompl" class="my-2 fw-semibold"
+              >Número/Compl</label
+            >
+            <input type="text" id="txtNumCompl" class="form-control" />
+          </div>
+          <div class="col-6">
+            <label for="txtCidade" class="my-2 fw-semibold">Cidade</label>
+            <input type="text" id="txtCidade" class="form-control" />
+          </div>
+          <div class="col-2">
+            <label for="txtUF" class="my-2 fw-semibold">UF</label>
+            <input type="text" id="txtUF" class="form-control" />
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            <label for="txtOcupacao" class="my-2 fw-semibold">Ocupação</label>
+            <input type="text" id="txtOcupacao" class="form-control" />
+          </div>
+        </div>
+      </div>
+
+      <div class="col-4 text-center">
+        <img
+          id="foto"
+          src="/assets/user_avatar.png"
+          width="100%"
+          class="rounded-circle"
+        />
+        <button class="btn btn-primary my-2">Enviar Foto</button>
+      </div>
+    </div>
+  </section>
+  <!--Informações Básicas-->
+
+  <!--Diagnóstico Clínico-->
+  <section id="diagnosticoClinico" class="my-3">
+    <h4>Diagnóstico Clínico</h4>
+    <div class="row">
+      <div class="col-12">
+        <label for="txtDiagnosticoClinico" class="my-2"
+          >Descreva o diagnóstico clínico</label
+        >
+        <textarea class="form-control" id="txtDiagnosticoClinico"></textarea>
+      </div>
+    </div>
+  </section>
+  <!--Diagnóstico Clínico-->
+
+  <!--Queixa Principal-->
+  <section id="queixaPrincipal" class="my-3">
+    <h4>Queixa Principal</h4>
+    <div class="row">
+      <div class="col-12">
+        <label for="txtQueixaPrincipal" class="my-2"
+          >Descreva as principais queixas do paciente</label
+        >
+        <textarea class="form-control" id="txtQueixaPrincipal"></textarea>
+      </div>
+    </div>
+  </section>
+  <!--Diagnóstico Clínico-->
 </div>
