@@ -14,7 +14,7 @@ const routes: Routes = [
     component: MainComponent,
   },
   {
-    path: 'ficha',
+    path: 'ficha/:id',
     component: FichaPacienteComponent,
   },
 ];

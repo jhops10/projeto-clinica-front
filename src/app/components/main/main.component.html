@@ -27,17 +27,18 @@
   <hr />
   <div class="row" *ngFor="let item of lista">
     <div class="col-12">
-      {{ item.nome }}
+      <a [routerLink]="['/ficha', item.idPaciente]">{{ item.nome }}</a>
     </div>
   </div>
 </div>
 
 <div class="container d-flex justify-content-end align-items-end">
-  <button
-    id="adicionar"
-    class="btn btn-success rounded-2 fw-semibold text-center"
-    (click)="adicionarFicha()"
-  >
-    Adicionar Novo
-  </button>
+  <a [routerLink]="['/ficha', 'NOVA']">
+    <button
+      id="adicionar"
+      class="btn btn-success rounded-2 fw-semibold text-center"
+    >
+      Adicionar Novo
+    </button>
+  </a>
 </div>

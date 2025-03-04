@@ -18,6 +18,6 @@ export class FichaPaciente {
   condutaClinica: string = '';
   diagnostico: string = '';
   uuid: string = '';
-  linkFoto: string = '';
+  linkFoto: string = '/assets/user_avatar.png';
   ativo: number = 0;
 }
