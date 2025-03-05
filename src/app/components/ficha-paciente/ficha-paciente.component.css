@@ -1,0 +1,7 @@
+#salvar {
+  position: fixed;
+  bottom: 50px; /* Distância do fundo da tela */
+  right: 80px; /* Distância da direita */
+  z-index: 1000; /* Garante que fique acima de outros elementos */
+  width: 150px;
+}

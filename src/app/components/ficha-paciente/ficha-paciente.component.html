@@ -1,3 +1,4 @@
+<app-wait-icon *ngIf="loading"></app-wait-icon>
 <div class="container mt-2">
   <div class="row">
     <div class="col-12 text-center">
@@ -6,34 +7,42 @@
   </div>
   <ul class="nav nav-tabs">
     <li class="nav-item">
-      <a class="nav-link" href="#">Info. Básicas</a>
+      <span class="nav-link" (click)="scroll('infoBasica')">Info. Básicas</span>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Diagnóstico Clínico</a>
+      <span class="nav-link" (click)="scroll('diagnosticoClinico')"
+        >Diagnóstico Clínico</span
+      >
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Queixa Principal</a>
+      <span class="nav-link" (click)="scroll('queixaPrincipal')"
+        >Queixa Principal</span
+      >
     </li>
     <li class="nav-item">
-      <a class="nav-link">HMP/HMA</a>
+      <span class="nav-link" (click)="scroll('hmpHma')">HMP/HMA</span>
     </li>
     <li class="nav-item">
-      <a class="nav-link">Medicações</a>
+      <span class="nav-link" (click)="scroll('medicacoes')">Medicações</span>
     </li>
     <li class="nav-item">
-      <a class="nav-link">Ex. Complementares</a>
+      <span class="nav-link" (click)="scroll('exComplementares')"
+        >Ex. Complementares</span
+      >
     </li>
     <li class="nav-item">
-      <a class="nav-link">Ex. Físico</a>
+      <span class="nav-link" (click)="scroll('exFisico')">Ex. Físico</span>
     </li>
     <li class="nav-item">
-      <a class="nav-link">Conduta Clínica</a>
+      <span class="nav-link" (click)="scroll('condutaClinica')"
+        >Conduta Clínica</span
+      >
     </li>
     <li class="nav-item">
-      <a class="nav-link">Diagnóstico</a>
+      <span class="nav-link" (click)="scroll('diagnostico')">Diagnóstico</span>
     </li>
     <li class="nav-item">
-      <a class="nav-link">Mídias</a>
+      <span class="nav-link" (click)="scroll('midias')">Mídias</span>
     </li>
   </ul>
 </div>
@@ -49,29 +58,56 @@
             <label for="txtNome" class="my-2 fw-semibold">
               Nome do Paciente</label
             >
-            <input type="text" id="txtNome" class="form-control" />
+            <input
+              type="text"
+              id="txtNome"
+              class="form-control"
+              [(ngModel)]="ficha.nome"
+            />
           </div>
         </div>
 
         <div class="row">
-          <div class="col-6">
+          <div class="col-4">
             <label for="txtSexo" class="my-2 fw-semibold">Sexo</label>
-            <select id="txtSexo" class="form-control">
+            <select id="txtSexo" class="form-control" [(ngModel)]="ficha.sexo">
               <option value="M">Masculino</option>
               <option value="F">Feminino</option>
               <option value="X">Prefiro Não Informar</option>
             </select>
           </div>
-          <div class="col-6">
+          <div class="col-4">
+            <label for="txtDataNasc" class="my-2 fw-semibold"
+              >Data Nascimento</label
+            >
+            <input
+              type="date"
+              id="txtDataNasc"
+              class="form-control"
+              [(ngModel)]="ficha.dataNascimento"
+            />
+          </div>
+          <div class="col-4">
             <label for="txtCep" class="my-2 fw-semibold">CEP</label>
-            <input type="text" id="txtCep" class="form-control" />
+            <input
+              type="text"
+              id="txtCep"
+              class="form-control"
+              (keyup.enter)="buscarCep()"
+              [(ngModel)]="ficha.cep"
+            />
           </div>
         </div>
 
         <div class="row">
           <div class="col-12">
             <label for="txtEndereco" class="my-2 fw-semibold">Endereço</label>
-            <input type="text" id="txtEndereco" class="form-control" />
+            <input
+              type="text"
+              id="txtEndereco"
+              class="form-control"
+              [(ngModel)]="ficha.endereco"
+            />
           </div>
         </div>
 
@@ -80,22 +116,42 @@
             <label for="txtNumCompl" class="my-2 fw-semibold"
               >Número/Compl</label
             >
-            <input type="text" id="txtNumCompl" class="form-control" />
+            <input
+              type="text"
+              id="txtNumCompl"
+              class="form-control"
+              [(ngModel)]="ficha.numeroComplemento"
+            />
           </div>
           <div class="col-6">
             <label for="txtCidade" class="my-2 fw-semibold">Cidade</label>
-            <input type="text" id="txtCidade" class="form-control" />
+            <input
+              type="text"
+              id="txtCidade"
+              class="form-control"
+              [(ngModel)]="ficha.cidade"
+            />
           </div>
           <div class="col-2">
             <label for="txtUF" class="my-2 fw-semibold">UF</label>
-            <input type="text" id="txtUF" class="form-control" />
+            <input
+              type="text"
+              id="txtUF"
+              class="form-control"
+              [(ngModel)]="ficha.estado"
+            />
           </div>
         </div>
 
         <div class="row">
           <div class="col-12">
             <label for="txtOcupacao" class="my-2 fw-semibold">Ocupação</label>
-            <input type="text" id="txtOcupacao" class="form-control" />
+            <input
+              type="text"
+              id="txtOcupacao"
+              class="form-control"
+              [(ngModel)]="ficha.ocupacao"
+            />
           </div>
         </div>
       </div>
@@ -103,11 +159,11 @@
       <div class="col-4 text-center">
         <img
           id="foto"
-          src="/assets/user_avatar.png"
+          [src]="ficha.linkFoto"
           width="100%"
           class="rounded-circle"
         />
-        <button class="btn btn-primary my-2">Enviar Foto</button>
+        <button class="btn btn-primary my-2 fw-semibold">Enviar Foto</button>
       </div>
     </div>
   </section>
@@ -121,7 +177,11 @@
         <label for="txtDiagnosticoClinico" class="my-2"
           >Descreva o diagnóstico clínico</label
         >
-        <textarea class="form-control" id="txtDiagnosticoClinico"></textarea>
+        <textarea
+          class="form-control"
+          id="txtDiagnosticoClinico"
+          [(ngModel)]="ficha.diagnosticoClinico"
+        ></textarea>
       </div>
     </div>
   </section>
@@ -135,9 +195,135 @@
         <label for="txtQueixaPrincipal" class="my-2"
           >Descreva as principais queixas do paciente</label
         >
-        <textarea class="form-control" id="txtQueixaPrincipal"></textarea>
+        <textarea
+          class="form-control"
+          id="txtQueixaPrincipal"
+          [(ngModel)]="ficha.queixaPrincipal"
+        ></textarea>
       </div>
     </div>
   </section>
   <!--Diagnóstico Clínico-->
+
+  <!--Hmp/Hma-->
+  <section id="hmpHma" class="my-3">
+    <h4>HMP/HMA</h4>
+    <div class="row">
+      <div class="col-12">
+        <label for="hmpHma" class="my-2">Hmp / Hma</label>
+        <textarea
+          class="form-control"
+          id="hmpHma"
+          [(ngModel)]="ficha.hmpHma"
+        ></textarea>
+      </div>
+    </div>
+  </section>
+  <!--Hmp/Hma-->
+
+  <!--Medicações-->
+  <section id="medicacoes" class="my-3">
+    <h4>Medicações</h4>
+    <div class="row">
+      <div class="col-12">
+        <label for="medicacoes" class="my-2"
+          >Informe as medicações do paciente</label
+        >
+        <textarea
+          class="form-control"
+          id="medicacoes"
+          [(ngModel)]="ficha.medicacoes"
+        ></textarea>
+      </div>
+    </div>
+  </section>
+  <!--Medicações-->
+
+  <!--Exames Complementares-->
+  <section id="exComplementares" class="my-3">
+    <h4>Exames Complementares</h4>
+    <div class="row">
+      <div class="col-12">
+        <label for="exComplementares" class="my-2"
+          >Exames complementares do paciente</label
+        >
+        <textarea
+          class="form-control"
+          id="exComplementares"
+          [(ngModel)]="ficha.examesComplementares"
+        ></textarea>
+      </div>
+    </div>
+  </section>
+  <!--Exames Complementares-->
+
+  <!--Exames Físicos-->
+  <section id="exFisico" class="my-3">
+    <h4>Exames Físicos</h4>
+    <div class="row">
+      <div class="col-12">
+        <label for="exFisico" class="my-2"
+          >Descreva os exames físicos do paciente</label
+        >
+        <textarea
+          class="form-control"
+          id="exFisico"
+          [(ngModel)]="ficha.exameFisico"
+        ></textarea>
+      </div>
+    </div>
+  </section>
+  <!--Exames Físicos-->
+
+  <!--Conduta Clínica-->
+  <section id="condutaClinica" class="my-3">
+    <h4>Conduta Clínica</h4>
+    <div class="row">
+      <div class="col-12">
+        <label for="condutaClinica" class="my-2"
+          >Descreva a conduta clínica do paciente</label
+        >
+        <textarea
+          class="form-control"
+          id="condutaClinica"
+          [(ngModel)]="ficha.condutaClinica"
+        ></textarea>
+      </div>
+    </div>
+  </section>
+  <!--Conduta Clínica-->
+
+  <!--Diagnóstico-->
+  <section id="diagnostico" class="my-3">
+    <h4>Diagnóstico</h4>
+    <div class="row">
+      <div class="col-12">
+        <label for="diagnostico" class="my-2"
+          >Informe o diagnóstico do paciente</label
+        >
+        <textarea
+          class="form-control"
+          id="diagnostico"
+          [(ngModel)]="ficha.diagnostico"
+        ></textarea>
+      </div>
+    </div>
+  </section>
+  <!--Diagnóstico-->
+
+  <!--Mídias-->
+  <section id="midias" class="my-3">
+    <h4>Mídias</h4>
+    <div class="row">
+      <div class="col-12">
+        <label for="midias" class="my-2">Mídias disponíveis</label>
+        <textarea class="form-control" id="midias"></textarea>
+      </div>
+    </div>
+  </section>
+  <!--Mídias-->
 </div>
+
+<button id="salvar" class="btn btn-success fw-semibold" (click)="salvarFicha()">
+  Salvar
+</button>
