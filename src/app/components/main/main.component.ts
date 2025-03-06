@@ -12,7 +12,7 @@ export class MainComponent implements OnInit {
   public lista: FichaPaciente[] = [];
   public keyword: string = '';
   public loading: boolean = false;
-
+  public msgErro: string = '';
   public constructor(
     private fichaService: FichaService,
     private router: Router
@@ -25,21 +25,30 @@ export class MainComponent implements OnInit {
     this.fichaService.buscarPacientes(this.keyword).subscribe({
       next: (res: FichaPaciente[]) => {
         this.loading = false;
-
         this.lista = res;
       },
       error: (err: any) => {
-        if ((err.status = 404)) {
-          alert('Não encontrei pacientes com esse nome');
-        } else {
-          alert('Erro! Paciente não encontrado!');
-        }
         this.loading = false;
+        if (err.status == 404) {
+          this.exibirModal('Não encontrei pacientes com este nome');
+        } else {
+          this.exibirModal('Erro ao Buscar Paciente');
+        }
       },
     });
   }
 
-  public adicionarFicha() {
+  public adicionarFicha(): void {
     this.router.navigate(['ficha']);
+  }
+
+  public logout(): void {
+    localStorage.removeItem('SalutarTK');
+    this.router.navigate(['/']);
+  }
+
+  public exibirModal(msg: string): void {
+    this.msgErro = msg;
+    document.getElementById('btnModal')?.click();
   }
 }

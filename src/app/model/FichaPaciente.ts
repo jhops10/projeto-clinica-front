@@ -1,6 +1,8 @@
+import { Midia } from './Midia';
+
 export class FichaPaciente {
-  idPaciente: number = 0;
-  nome: string = '';
+  idFicha: number = 0;
+  nomePaciente: string = '';
   dataNascimento: string = '';
   sexo: string = '';
   cep: string = '';
@@ -17,7 +19,9 @@ export class FichaPaciente {
   exameFisico: string = '';
   condutaClinica: string = '';
   diagnostico: string = '';
+  evolucaoClinica: string = '';
   uuid: string = '';
-  linkFoto: string = '/assets/user_avatar.png';
+  linkFoto: string = '';
   ativo: number = 0;
+  midias: Midia[] = [];
 }

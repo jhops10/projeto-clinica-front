@@ -13,20 +13,19 @@ export class LoginComponent {
   public usuario: Usuario = new Usuario();
   public loading: boolean = false;
   public mensagem: string = '';
-
   public constructor(private route: Router, private service: LoginService) {}
 
   public logar() {
     this.loading = true;
     this.service.efetuarLogin(this.usuario).subscribe({
-      next: (result: ClinicaToken) => {
+      next: (res: ClinicaToken) => {
         this.loading = false;
-        localStorage.setItem('ClinicaToken', result.token);
+        localStorage.setItem('SalutarTK', res.token);
         this.route.navigate(['main']);
       },
       error: (err: any) => {
+        this.mensagem = 'Usuario/Senha inválidos';
         this.loading = false;
-        this.mensagem = 'Usuário/Senha Inválidos';
       },
     });
   }

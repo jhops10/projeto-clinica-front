@@ -12,7 +12,13 @@ import { WaitIconComponent } from './components/wait-icon/wait-icon.component';
 import { FichaPacienteComponent } from './components/ficha-paciente/ficha-paciente.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, MainComponent, WaitIconComponent, FichaPacienteComponent],
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    MainComponent,
+    WaitIconComponent,
+    FichaPacienteComponent,
+  ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],

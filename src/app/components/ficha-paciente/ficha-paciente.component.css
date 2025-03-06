@@ -1,7 +1,90 @@
+textarea {
+  height: 400px;
+  box-shadow: 4px 6px 12px 1px rgba(163, 163, 163, 1);
+}
+
+.nav-link {
+  color: green;
+}
+.nav-link:hover {
+  text-shadow: 4px 1px 4px rgba(0, 0, 0, 0.49);
+}
+#foto {
+  border-radius: 50%;
+}
+
 #salvar {
   position: fixed;
-  bottom: 50px; /* Distância do fundo da tela */
-  right: 80px; /* Distância da direita */
-  z-index: 1000; /* Garante que fique acima de outros elementos */
-  width: 150px;
+  z-index: 2;
+  bottom: 2em;
+  right: 3em;
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+}
+
+#voltar {
+  position: fixed;
+  z-index: 2;
+  bottom: 2em;
+  left: 3em;
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+}
+
+#cabecalho {
+  position: fixed;
+  top: 0;
+  background-color: white;
+}
+
+section {
+  padding-top: 8em;
+  height: 100vh;
+}
+
+.midia {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+#rodape {
+  width: 100vw;
+  height: 4em;
+  background-image: linear-gradient(to bottom, #00375d, #00566b, #007358);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
+@media screen and (max-width: 767px) {
+  section {
+    padding-top: 17em;
+    height: 100vh;
+  }
+  #rodape {
+    width: 100vw;
+    height: 2em;
+    background-image: linear-gradient(to bottom, #00375d, #00566b, #007358);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+  }
+  #voltar {
+    position: fixed;
+    bottom: 1em;
+    left: 1em;
+    width: 50px;
+    height: 50px;
+    padding-left: 8px;
+  }
+  #salvar {
+    position: fixed;
+    bottom: 1em;
+    right: 1em;
+    width: 50px;
+    height: 50px;
+    padding-left: 10px;
+  }
 }

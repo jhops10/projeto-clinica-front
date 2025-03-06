@@ -1,7 +1,8 @@
 <app-wait-icon *ngIf="loading"></app-wait-icon>
-<div class="container d-flex justify-content-center align-items-center vh-100">
-  <div class="card p-3">
-    <img src="assets/logo.png" alt="Logo da clínica" />
+<div class="container">
+  <div class="card">
+    <img src="assets/logo.png" width="100%" />
+    <!-- <h1 class="h3 mb-3 fw-normal text-center">Salutar Fisioterapia</h1> -->
 
     <div class="form-floating">
       <input
@@ -11,7 +12,7 @@
         placeholder="name@example.com"
         [(ngModel)]="usuario.login"
       />
-      <label for="floatingInput">Login</label>
+      <label for="floatingInput">Seu Login</label>
     </div>
     <div class="form-floating">
       <input
@@ -22,17 +23,16 @@
         [(ngModel)]="usuario.senha"
         (keyup.enter)="logar()"
       />
-      <label for="floatingPassword">Senha</label>
+      <label for="floatingPassword">Sua Senha</label>
     </div>
 
-    <button class="btn btn-primary w-100 py-2" type="button" (click)="logar()">
-      Entrar
-    </button>
-
-    <span
-      class="text-danger text-center pt-1 pb-1 my-2 bg-danger-subtle rounded fw-semibold"
-      *ngIf="mensagem != ''"
-      >{{ mensagem }}</span
+    <button
+      class="w-100 btn btn-lg btn-primary"
+      type="button"
+      (click)="logar()"
     >
+      Acessar
+    </button>
+    <span id="msg" *ngIf="mensagem != ''"> {{ mensagem }}</span>
   </div>
 </div>
