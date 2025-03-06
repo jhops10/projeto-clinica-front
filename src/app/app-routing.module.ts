@@ -5,18 +5,9 @@ import { MainComponent } from './components/main/main.component';
 import { FichaPacienteComponent } from './components/ficha-paciente/ficha-paciente.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: LoginComponent,
-  },
-  {
-    path: 'main',
-    component: MainComponent,
-  },
-  {
-    path: 'ficha/:id',
-    component: FichaPacienteComponent,
-  },
+  { path: '', component: LoginComponent },
+  { path: 'main', component: MainComponent },
+  { path: 'ficha/:id', component: FichaPacienteComponent },
 ];
 
 @NgModule({
